@@ -6,7 +6,12 @@
 <script>
     import mTabbarItem from './tabbar-item';
     export default {
-        props: ['value']
+        props: ['value'],
+        computed:{
+        	value(){
+        		return this.$route.matched[0].name
+        	}
+        }
     }
 </script>
 <style lang="less">
