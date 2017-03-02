@@ -1,35 +1,42 @@
 <template>
-    <header class="m-header" :class="{'is-bg':bg,'is-fixed':fixed}">
-  		<div class="m-header-button is-left">
-  			<slot name="left"></slot>
-  		</div>
-  		
-  		<h1 class="m-header-title" v-text="title"></h1>
-  		
-  		<div class="m-header-button is-right">
-  			<slot name="right"></slot>
-  		</div>
-  		
-  		
-  	</header>
+	<header class="m-header" :class="{'is-bg':bg,'is-fixed':fixed}">
+		<div class="m-header-button is-left">
+			<slot name="left"></slot>
+		</div>
+		<h1 class="m-header-title" v-text="title"></h1>
+		<div class="m-header-button is-right">
+			<slot name="right"></slot>
+		</div>
+	</header>
 </template>
 <script>
-   export default{
-   	props:{
-   		title:{
-   			type:String,
-   			default:''
-   		},
-   		bg:{
-   			type:Boolean,
-   			default:false
-   		},
-   		fixed:{
-   			type:Boolean,
-   			default:false
-   		}
-   	}
-   }
+/**
+* @param title - header显示的标题
+* @param bg - header是否显示的标题背景
+* @param {slot} [left] - 左侧的图片内容和文字
+* @param {slot} [right] - 右侧的图片内容和文字
+* @exmaple
+* <m-header title="豆瓣app" :bg="true">
+*  			<a href="javascript:;" slot="left"><img class="m-icon-img" src="../../assets/images/ic_bar_back_white.png"/>返回</a>
+*  			<a href="javascript:;" slot="right">分享</a>
+* </m-header>
+*/
+	export default {
+		props: {
+			title: {
+				type: String,
+				default: ''
+			},
+			bg: {
+				type: Boolean,
+				default: false
+			},
+			fixed: {
+				type: Boolean,
+				default: false
+			}
+		}
+	}
 </script>
 <style lang="less">
 /*导入颜色变量*/
