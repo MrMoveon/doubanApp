@@ -1,6 +1,6 @@
 <template>
 	<header class="m-header" :class="{'is-bg':bg,'is-fixed':fixed}">
-		<div class="m-header-button is-left">
+		<div class="m-header-button is-left" v-show="leftShow">
 			<slot name="left"></slot>
 		</div>
 		<h1 class="m-header-title" v-text="title"></h1>
@@ -34,6 +34,10 @@
 			fixed: {
 				type: Boolean,
 				default: false
+			},
+			leftShow:{
+				type: Boolean,
+				default: true
 			}
 		}
 	}
@@ -80,6 +84,7 @@
 	&.is-bg{
 		background:@headerBg;
 		color: #fff;
+		border-bottom:none;
 		a{color: #fff;}
 		.m-header-title{
 			color: #fff;

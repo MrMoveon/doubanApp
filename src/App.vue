@@ -2,7 +2,7 @@
   <div id="app">
     <router-view></router-view>
     <m-tabbar v-model="select">
-     <m-tabbar-item id='Index' isRouter>
+      <m-tabbar-item id='Index' isRouter>
         <img src="./assets/images/ic_tab_home_normal.png" alt="" slot="icon-normal"> 
         <img src="./assets/images/ic_tab_home_active.png" alt="" slot="icon-active"> 
         首页

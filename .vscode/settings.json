@@ -1,3 +1,10 @@
 {
-    "vsicons.presets.angular": false
+"vsicons.presets.angular": false,
+  "files.associations": {
+    "*.vue": "html"
+  },
+  "emmet.syntaxProfiles": {
+    "vue-html": "html"
+  }
+
 }
