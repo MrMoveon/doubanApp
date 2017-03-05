@@ -4,7 +4,7 @@
       <slot name="swiper-con"></slot>
     </div>
     <!-- 分页器 -->
-    <div :class="{'swiper-pagination':pagination}"></div>
+    <div :class="{'swiper-pagination':pagination}" :style="{'text-align':paginationDirection}"></div>
   </div>
 </template>
 <script>
@@ -27,10 +27,7 @@
         type: String,
         default: 'horizontal'
       },
-      pagination: {
-        type: Boolean,
-        default: true
-      },
+      
       autoplay: {
         type: Number,
         default: 5000,
@@ -38,6 +35,14 @@
       paginationType: {
         type: String,
         default: 'bullets'
+      },
+      pagination: {
+        type: Boolean,
+        default: true
+      },
+      paginationDirection:{
+        type:String,
+        default:'center'
       }
     },
     mounted() {
@@ -64,6 +69,10 @@
 </script>
 <style>
   @import '../assets/lib/swiper/css/swiper.css';
+  
+  .swiper-container img{
+    width: 100%
+  }
   .swiper-pagination-bullet-active {
     background: #fff;
   }

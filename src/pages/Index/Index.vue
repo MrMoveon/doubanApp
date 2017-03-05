@@ -1,74 +1,80 @@
 <template>
-	<div>
-		<m-header title="豆瓣app" :bg="true" fixed>
-			<a href="javascript:;" slot="right">分享</a>
-		</m-header>
-		<div class="page-content">
-			<m-swipe swipeid="swipe01" :autoplay="1000" effect="cube">
-				<div class="swiper-slide slide02" slot="swiper-con">Slide 1</div>
-				<div class="swiper-slide slide01" slot="swiper-con">Slide 2</div>
-				<div class="swiper-slide slide03" slot="swiper-con">Slide 3</div>
-			</m-swipe>
-			<m-swipe swipeid="swipe021" :loop="false" paginationType="fraction" :autoplay="2000">
-				<div class="swiper-slide slide01" slot="swiper-con">Slide 1</div>
-				<div class="swiper-slide slide02" slot="swiper-con">Slide 2</div>
-				<div class="swiper-slide slide03" slot="swiper-con">Slide 3</div>
-			</m-swipe>
-			<p>asdasdas</p>
-			<p>asdasdas</p>
+  <div>
+    <header class="m-header is-fixed is-bg top-search">
+      <div class="search-wrap">
+        <img src="../../assets/images/ic_search_gray.png" alt="">
+        <span class="placeholder">影视 图书 唱片 小组 舞台剧等</span>
+        <img src="../../assets/images/ic_scan_gray.png" alt="">
+      </div>
+      <div class="m-header-button is-right" style="text-align: center;width: 50px;">
+        <a href="javascript:;"><img class="m-icon-img" src="../../assets/images/ic_chat_white.png" /></a>
+      </div>
+    </header>
+    <div class="page-content">
+      <m-swipe swipeid="swipe01" :autoplay="1000" paginationDirection="right">
+        <div class="swiper-slide " slot="swiper-con"><img src="../../assets/images/banner/01.jpg" alt=""></div>
+        <div class="swiper-slide " slot="swiper-con"><img src="../../assets/images/banner/02.jpg" alt=""></div>
+        <div class="swiper-slide " slot="swiper-con"><img src="../../assets/images/banner/03.jpg" alt=""></div>
+      </m-swipe>
+      <m-cell title="热门" hot>
+        <a href="javascript:;" slot="cell-right">更多<img src="../../assets/images/ic_arrow_gray_small.png" alt=""></a>
+      </m-cell>
+      <m-cell title="提醒" icon>
+        <img src="../../assets/images/ic_mine_notification.png" slot="icon">
+        <a href="javascript:;" slot="cell-right"><img src="../../assets/images/ic_arrow_gray_small.png" alt=""></a>
+      </m-cell>
+      <m-cell title="周末"></m-cell>
 
-			<p>asdasdas</p>
-			<p>asdasdas</p>
-			<p>asdasdas</p>
-
-			<p>asdasdas</p>
-			<p>asdasdas</p>
-			<p>asdasdas</p>
-			<p>asdasdas</p>
-			<p>asdasdas</p>
-			<p>asdasdas</p>
-			<p>asdasdas</p>
-
-		</div>
-	</div>
+    </div>
+  </div>
 </template>
 
 <script>
-	import mHeader from '../../components/header'
-	import mSwipe from '../../components/swipe'
-	export default {
-		name: 'index',
-		components: {
-			mHeader,
-			mSwipe
-		}
-	}
+  import mHeader from '../../components/header'
+  import mSwipe from '../../components/swipe'
+  import mCell from '../../components/cell'
+  export default {
+    name: 'index',
+    components: {
+      mHeader,
+      mSwipe,
+      mCell
+    }
+  }
+
 </script>
 
 
 <style lang="less">
-.is-fixed ~ .page-content{
-padding-top:44px;
-}
-.slide01{
-    background: #41b883;
-    text-align: center;
-    line-height: 200px;
-    font-size: 30px;
-    color: #fff;
-}
-.slide02{
-    background: #364a60;
-    text-align: center;
-    line-height: 200px;
-    font-size: 30px;
-    color: #fff;
-}
-.slide03{
-    background: #ea6f5a;
-    text-align: center;
-    line-height: 200px;
-    font-size: 30px;
-    color: #fff;
-}
+  header.m-header {
+    padding: 0 0 0 10px;
+  }
+  
+  .is-fixed~.page-content {
+    padding-top: 44px;
+  }
+  
+  .top-search {
+    .search-wrap {
+      width: 100%;
+      height: 30px;
+      background: #fff;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #c0c0c0;
+      padding: 0 12px;
+      .placeholder {
+        flex: 1;
+        text-align: left;
+        padding-left: 12px;
+      }
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
 </style>
