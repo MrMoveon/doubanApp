@@ -1,5 +1,5 @@
 <template>
-  <div class="m-cell normal" :class="{'is-hot':hot,'is-icon':icon}">
+  <div class="m-cell normal" :class="label">
     <div class="m-cell-title">
       <slot name="icon"></slot> {{title}}
     </div>
@@ -19,9 +19,17 @@
         type: Boolean,
         default: false
       },
+       recommend: {
+        type: Boolean,
+        default: false
+      },
       icon: {
         type: Boolean,
         default: false
+      },
+      label:{
+        type:String,
+        default:'normal'
       }
     }
   }
@@ -62,6 +70,23 @@
       }
     }
     &.normal {
+      
+    }
+    &.hot {
+      &:after {
+        content: '';
+        position: absolute;
+        width: 5px;
+        left: 0;
+        top: 10px;
+        bottom: 10px;
+        background: #ff8447;
+      }
+      &:before{
+        height: 0
+      }
+    }
+    &.recommend {
       &:after {
         content: '';
         position: absolute;
@@ -71,29 +96,11 @@
         bottom: 10px;
         background: #42bd56;
       }
-    }
-    &.is-hot {
-      &:after {
-        content: '';
-        position: absolute;
-        width: 5px;
-        left: 0;
-        top: 10px;
-        bottom: 10px;
-        background: #ff8447;
+       &:before{
+        height: 0
       }
     }
-    &.is-icon {
-      &:after {
-        content: '';
-        position: absolute;
-        width: 0px;
-        left: 0;
-        top: 10px;
-        bottom: 10px;
-        background: #ff8447;
-      }
-    }
+   
   }
 
 </style>
