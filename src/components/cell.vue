@@ -73,13 +73,15 @@
       
     }
     &.hot {
+    	padding: 0px 5px 0px 15px;
+    	 height: 22px;
       &:after {
         content: '';
         position: absolute;
         width: 5px;
         left: 0;
-        top: 10px;
-        bottom: 10px;
+        top: 0px;
+        bottom: 0px;
         background: #ff8447;
       }
       &:before{
@@ -87,13 +89,15 @@
       }
     }
     &.recommend {
+    	 padding: 0px 5px 0px 15px;
+    	 height: 22px;
       &:after {
         content: '';
         position: absolute;
         width: 5px;
         left: 0;
-        top: 10px;
-        bottom: 10px;
+        top: 0px;
+        bottom: 0px;
         background: #42bd56;
       }
        &:before{
