@@ -9,11 +9,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "mint-ui": "^2.1.1",
     "vue": "^2.1.10",
-    "vue-router": "^2.2.0"
+    "vue-router": "^2.2.0",
+    "vuex": "^2.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

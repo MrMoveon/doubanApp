@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+  	<loading v-if="$store.state.loading"></loading>
     <router-view></router-view>
     <m-tabbar v-model="select">
       <m-tabbar-item id='Index' isRouter>
