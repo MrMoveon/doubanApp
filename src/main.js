@@ -4,15 +4,18 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Loading from './components/loading'
-import stores from './store/store'
-import './assets/less/app.less'
+import store from './store/store'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
+import './assets/less/app.less'
+Vue.use(VueAxios, axios)
 Vue.use(Loading);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  store:stores,
+  store,
   template: '<App/>',
   components: { App }
 })

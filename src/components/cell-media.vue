@@ -10,21 +10,22 @@
 						<slot name='describe'></slot>
 					</div>
 				</div>
-				<div class="m-pull-right">
-					<slot name="right-img"></slot>
+				<div class="m-pull-right right-img" :style="{'background-image':'url('+bg+')'}">
+					<img :src="bg" alt="">
 				</div>
 			</div>
 			<div class="m-cell-media-bottom">
 				<p v-if="author">作者：{{author}}</p>
-				<p v-if="column">来自栏目：{{column}}</p>
+				<p v-if="column">{{column}}</p>
 			</div>
 		</a>
 	</div>
 </template>
 <script>
 	export default {
-		props: ['author','column']
+		props: ['author', 'column', 'bg']
 	}
+
 </script>
 <style lang="less">
 	.m-cell-media-wrap {
@@ -32,15 +33,15 @@
 		flex-direction: column;
 		padding: 18px 20px;
 		position: relative;
-		&:after{
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      height: 1px;
-      background: #eee;
-      transform: scaleY(0.5);
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			height: 1px;
+			background: #eee;
+			transform: scaleY(0.5);
 		}
 		.m-cell-media-top {
 			display: flex;
@@ -64,6 +65,8 @@
 				width: 94px;
 				height: 94px;
 				overflow: hidden;
+				background-position: center center;
+				background-size: cover;
 				img {
 					width: 100%;
 				}
@@ -76,7 +79,7 @@
 			margin-top: 12px;
 			color: #bfbfbf;
 			position: relative;
-			&:before{
+			&:before {
 				content: '';
 				position: absolute;
 				top: 0;
@@ -84,7 +87,6 @@
 				width: 20px;
 				height: 1px;
 				background: #eee;
-				
 			}
 		}
 	}

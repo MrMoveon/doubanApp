@@ -19,13 +19,14 @@
 			<!--热门-->
 			<div class="hot-wrap">
 				<m-cell title="热门" label="hot">
-					<a href="javascript:;" slot="cell-right">更多<img src="../../assets/images/ic_arrow_gray_small.png" alt=""></a>
+					<!--<a href="javascript:;" slot="cell-right">更多<img src="../../assets/images/ic_arrow_gray_small.png" alt=""></a>-->
 				</m-cell>
-				<m-cell-media author="豆瓣" column="广播精选">
-					<img slot="right-img" src="../../assets/images/media.jpg" />
-					<span slot="title">图文列表继承自列表组件图文列表继承自列表组件</span>
-					<span slot="describe">图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件</span>
-				</m-cell-media>
+				<m-cell-media :author="item.target.author.name" :column="item.source_cn" :bg="item.target.cover_url" v-for="(item,index) in hotData"
+					:key="item.id">
+
+					<span slot="title">{{item.title}}</span>
+					<span slot="describe">{{item.target.desc}}</span>
+					</m-cell-media>
 			</div>
 			<!--<m-cell title="提醒" icon>
 				<img src="../../assets/images/ic_mine_notification.png" slot="icon">
@@ -35,19 +36,13 @@
 				<a href="javascript:;" slot="cell-right"><img src="../../assets/images/ic_arrow_gray_small.png" alt=""></a>
 			</m-cell>-->
 			<!--推荐-->
-			<div class="recommend-wrap">
-				<m-cell title="一刻" label="recommend"></m-cell>
-				<m-cell-media author="豆瓣" column="广播精选">
-					<img slot="right-img" src="../../assets/images/media.jpg" />
-					<span slot="title">图文列表继承自列表组件图文列表继承自列表组件</span>
-					<span slot="describe">图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件</span>
+			<!--<div class="recommend-wrap">
+				<m-cell title="推荐" label="recommend"></m-cell>
+				<m-cell-media  :author="item.target.author.name" :column="item.source_cn" :bg="item.target.cover_url" v-for="(item,index) in recommendData" :key="item.id">
+					<span slot="title">{{item.title}}</span>
+					<span slot="describe">{{item.target.desc}}</span>
 				</m-cell-media>
-				<m-cell-media author="豆瓣">
-					<img slot="right-img" src="../../assets/images/media.jpg" />
-					<span slot="title">图文列表继承自列表组件图文列表继承自列表组件</span>
-					<span slot="describe">图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件图文列表继承自列表组件</span>
-				</m-cell-media>
-			</div>
+			</div>-->
 		</div>
 	</div>
 </template>
@@ -64,8 +59,38 @@
 			mSwipe,
 			mCell,
 			mCellMedia
+		},
+		data() {
+			return {
+				recommendData: [],
+				hotData: []
+			}
+		},
+		created() {
+			this.fetchData();
+		},
+		methods: {
+			fetchData() {
+				this.axios.get('/api/homeData').then((response) => {
+					let data = response.data.data.recommend_feeds;
+					let recommend = [];
+					let hot = [];
+					for (var i in data) {
+						if (data[i].card && data[i].card.name == '为你推荐') {
+							recommend.push(data[i]);
+						} else {
+							hot.push(data[i]);
+						}
+					}
+
+					this.recommendData = recommend;
+					this.hotData = hot;
+
+				})
+			}
 		}
 	}
+
 </script>
 
 <style lang="less">
@@ -75,7 +100,7 @@
 	
 	.is-fixed~.page-content {
 		padding-top: 44px;
-		padding-bottom:50px;
+		padding-bottom: 50px;
 	}
 	
 	.top-search {

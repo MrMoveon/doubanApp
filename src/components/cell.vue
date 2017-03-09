@@ -19,7 +19,7 @@
         type: Boolean,
         default: false
       },
-       recommend: {
+      recommend: {
         type: Boolean,
         default: false
       },
@@ -27,9 +27,9 @@
         type: Boolean,
         default: false
       },
-      label:{
-        type:String,
-        default:'normal'
+      label: {
+        type: String,
+        default: 'normal'
       }
     }
   }
@@ -69,12 +69,10 @@
         height: 20px;
       }
     }
-    &.normal {
-      
-    }
+    &.normal {}
     &.hot {
-    	padding: 0px 5px 0px 15px;
-    	 height: 22px;
+      padding: 0px 5px 0px 15px;
+      height: 22px;
       &:after {
         content: '';
         position: absolute;
@@ -84,13 +82,13 @@
         bottom: 0px;
         background: #ff8447;
       }
-      &:before{
+      &:before {
         height: 0
       }
     }
     &.recommend {
-    	 padding: 0px 5px 0px 15px;
-    	 height: 22px;
+      padding: 0px 5px 0px 15px;
+      height: 22px;
       &:after {
         content: '';
         position: absolute;
@@ -100,11 +98,9 @@
         bottom: 0px;
         background: #42bd56;
       }
-       &:before{
+      &:before {
         height: 0
       }
     }
-   
   }
-
 </style>

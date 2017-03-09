@@ -4,7 +4,7 @@ import {SHOW_LOADING,HIDE_LOADING} from './type';
 Vue.use(Vuex);
 
 const state={
-	loading:true
+	loading:false
 }
 
 const mutations={

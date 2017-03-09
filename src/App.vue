@@ -11,17 +11,12 @@
       <m-tabbar-item id='AudioBook' isRouter>
         <img src="./assets/images/ic_tab_subject_normal.png" alt="" slot="icon-normal"> 
         <img src="./assets/images/ic_tab_subject_active.png" alt="" slot="icon-active"> 
-        书影音
+        图书
       </m-tabbar-item>
       <m-tabbar-item id='Broadcast' isRouter>
         <img src="./assets/images/ic_tab_status_normal.png" alt="" slot="icon-normal"> 
         <img src="./assets/images/ic_tab_status_active.png" alt="" slot="icon-active"> 
-        广播
-      </m-tabbar-item>
-      <m-tabbar-item id='Group' isRouter>
-        <img src="./assets/images/ic_tab_group_normal.png" alt="" slot="icon-normal"> 
-        <img src="./assets/images/ic_tab_group_active.png" alt="" slot="icon-active"> 
-        小组
+        电影
       </m-tabbar-item>
        <m-tabbar-item id='Mine' isRouter>
         <img src="./assets/images/ic_tab_profile_normal.png" alt="" slot="icon-normal"> 
