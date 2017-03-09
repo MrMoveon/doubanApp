@@ -20,7 +20,18 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
 
+//添加静态数据路由
 var app = express()
+var homeData=require('../src/data/homeData.json');
+var apiRoutes = express.Router();
+apiRoutes.get('/homeData',function (req,res) {
+  res.json({
+    errno:0,
+    data:homeData
+  });
+});
+app.use('/api',apiRoutes);
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
